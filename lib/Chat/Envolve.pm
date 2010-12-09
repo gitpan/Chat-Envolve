@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Chat::Envolve;
 BEGIN {
-  $Chat::Envolve::VERSION = '1.0000';
+  $Chat::Envolve::VERSION = '1.0001';
 }
 
 use Moose;
@@ -75,7 +75,7 @@ sub generate_command_string {
 
 sub sign_command_string {
     my ($self, $command_string) = @_;
-    my $hash = hmac_sha1_hex( $command_string . $self->secret);
+    my $hash = hmac_sha1_hex( $command_string, $self->secret);
     return $hash . ';' . $command_string;
 }
 
@@ -89,7 +89,7 @@ Chat::Envolve - A Perl API for the Envolve web chat system.
 
 =head1 VERSION
 
-version 1.0000
+version 1.0001
 
 =head1 SYNOPSIS
 
