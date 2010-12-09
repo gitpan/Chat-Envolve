@@ -20,14 +20,13 @@ my %WriteMakefileArgs = (
   'LICENSE' => 'perl',
   'NAME' => 'Chat::Envolve',
   'PREREQ_PM' => {
-    'DateTime' => '0',
-    'Digest::SHA' => '0',
+    'Digest::HMAC_SHA1' => '1.01',
     'Encode' => '0',
     'MIME::Base64' => '0',
     'Moose' => '0.93',
     'Test::More' => '0'
   },
-  'VERSION' => '0.0100',
+  'VERSION' => '1.0000',
   'test' => {
     'TESTS' => 't/*.t'
   }

@@ -17,8 +17,7 @@ no_index:
     - author.t
     - eg
 requires:
-  DateTime: 0
-  Digest::SHA: 0
+  Digest::HMAC_SHA1: 1.01
   Encode: 0
   MIME::Base64: 0
   Moose: 0.93
@@ -26,4 +25,4 @@ requires:
 resources:
   bugtracker: http://github.com/rizen/Chat-Envolve/issues
   repository: git://github.com/rizen/Chat-Envolve.git
-version: 0.0100
+version: 1.0000
