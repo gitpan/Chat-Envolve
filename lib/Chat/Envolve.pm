@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Chat::Envolve;
 BEGIN {
-  $Chat::Envolve::VERSION = '1.0001';
+  $Chat::Envolve::VERSION = '1.0002';
 }
 
 use Moose;
@@ -89,7 +89,7 @@ Chat::Envolve - A Perl API for the Envolve web chat system.
 
 =head1 VERSION
 
-version 1.0001
+version 1.0002
 
 =head1 SYNOPSIS
 
