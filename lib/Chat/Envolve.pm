@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Chat::Envolve;
 BEGIN {
-  $Chat::Envolve::VERSION = '1.0002';
+  $Chat::Envolve::VERSION = '1.0003';
 }
 
 use Moose;
@@ -67,7 +67,8 @@ sub generate_command_string {
         .';v=0.2'
         .',c='.$command;
     foreach my $key (keys %params) {
-        $command_string .= ',' . $key . '=' . encode_base64(encode("UTF-8",$params{$key}));
+        my $value = ($key eq 'admin') ? $params{$key} : encode_base64(encode("UTF-8",$params{$key}));
+        $command_string .= ',' . $key . '=' . $value; 
         chomp $command_string;
     }
     return $command_string;
@@ -89,7 +90,7 @@ Chat::Envolve - A Perl API for the Envolve web chat system.
 
 =head1 VERSION
 
-version 1.0002
+version 1.0003
 
 =head1 SYNOPSIS
 
