@@ -2,10 +2,10 @@ use strict;
 use warnings;
 package Chat::Envolve;
 BEGIN {
-  $Chat::Envolve::VERSION = '1.0004';
+  $Chat::Envolve::VERSION = '1.0005';
 }
 
-use Moose;
+use Any::Moose;
 use MIME::Base64 qw(encode_base64);
 use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
 use Encode qw(encode);
@@ -80,7 +80,7 @@ sub sign_command_string {
     return $hash . ';' . $command_string;
 }
 
-no Moose;
+no Any::Moose;
 __PACKAGE__->meta->make_immutable;
 
 
@@ -90,7 +90,7 @@ Chat::Envolve - A Perl API for the Envolve web chat system.
 
 =head1 VERSION
 
-version 1.0004
+version 1.0005
 
 =head1 SYNOPSIS
 
