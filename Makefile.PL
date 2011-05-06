@@ -23,10 +23,10 @@ my %WriteMakefileArgs = (
     'Any::Moose' => '0.13',
     'Digest::HMAC_SHA1' => '1.01',
     'Encode' => '0',
-    'MIME::Base64' => '0',
+    'MIME::Base64' => '3.11',
     'Test::More' => '0'
   },
-  'VERSION' => '1.0006',
+  'VERSION' => '1.0007',
   'test' => {
     'TESTS' => 't/*.t'
   }

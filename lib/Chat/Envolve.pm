@@ -2,11 +2,11 @@ use strict;
 use warnings;
 package Chat::Envolve;
 BEGIN {
-  $Chat::Envolve::VERSION = '1.0006';
+  $Chat::Envolve::VERSION = '1.0007';
 }
 
 use Any::Moose;
-use MIME::Base64 qw(encode_base64);
+use MIME::Base64 qw(encode_base64url);
 use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
 use Encode qw(encode);
 
@@ -33,7 +33,6 @@ has site_id => (
 sub get_tags {
     my ($self, $first_name, %options) = @_;
     my $command = ($first_name) ? $self->get_login_command($first_name, %options) : $self->get_logout_command;
-    $command = s{\n}{\n\\}xmsg; # fix multi-line base 64 encoding to make it JS safe
     my $html = q{
 <script type="text/javascript">
     envoSn=%s;
@@ -68,7 +67,7 @@ sub generate_command_string {
         .';v=0.2'
         .',c='.$command;
     foreach my $key (keys %params) {
-        my $value = ($key eq 'admin') ? $params{$key} : encode_base64(encode("UTF-8",$params{$key}));
+        my $value = ($key eq 'admin') ? $params{$key} : encode_base64url(encode("UTF-8",$params{$key}));
         $command_string .= ',' . $key . '=' . $value; 
         chomp $command_string;
     }
@@ -91,7 +90,7 @@ Chat::Envolve - A Perl API for the Envolve web chat system.
 
 =head1 VERSION
 
-version 1.0006
+version 1.0007
 
 =head1 SYNOPSIS
 

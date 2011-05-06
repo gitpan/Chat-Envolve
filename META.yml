@@ -20,9 +20,9 @@ requires:
   Any::Moose: 0.13
   Digest::HMAC_SHA1: 1.01
   Encode: 0
-  MIME::Base64: 0
+  MIME::Base64: 3.11
   Test::More: 0
 resources:
   bugtracker: http://github.com/rizen/Chat-Envolve/issues
   repository: git://github.com/rizen/Chat-Envolve.git
-version: 1.0006
+version: 1.0007
