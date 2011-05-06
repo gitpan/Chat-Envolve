@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Chat::Envolve;
 BEGIN {
-  $Chat::Envolve::VERSION = '1.0003';
+  $Chat::Envolve::VERSION = '1.0004';
 }
 
 use Moose;
@@ -38,7 +38,7 @@ sub get_tags {
     envoSn=%s;
     env_commandString="%s";
 </script>
-<script type="text/javascript" src="http://d.envolve.com/env.nocache.js"></script>
+<script type="text/javascript" src="//d.envolve.com/env.nocache.js"></script>
     };
     return sprintf $html, $self->site_id, $command;
 }
@@ -90,7 +90,7 @@ Chat::Envolve - A Perl API for the Envolve web chat system.
 
 =head1 VERSION
 
-version 1.0003
+version 1.0004
 
 =head1 SYNOPSIS
 
@@ -170,7 +170,7 @@ Returns a signed logout command string that can be used to log a user out of a c
 If you prefer you can just inline it into the web page using the C<get_tags> method and pass no params to it.
 
 
-=head2 get_tags ( [ first_name, options ] )
+=head2 get_tags ( [ first_name, login_options,  ] )
 
 Returns some HTML tags that can be inlined into your web page to start the chat. If no parameters are passed in, then the user will be anonymous. If C<first_name> is passed in then the user will be authenticated.
 
@@ -180,7 +180,7 @@ Returns some HTML tags that can be inlined into your web page to start the chat.
 
 See C<get_login_command>
 
-=item options
+=item login_options
 
 See C<get_login_command>
 
